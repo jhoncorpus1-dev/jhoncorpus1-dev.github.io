@@ -1,28 +1,33 @@
-// ==========================================
-// JHON CORPUS - PORTAFOLIO
-// ==========================================
+/* =========================================================
+   MENÚ MÓVIL
+========================================================= */
 
-
-// Menú móvil
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 
 if (menuToggle && mainNav) {
 
     menuToggle.addEventListener("click", () => {
+
         mainNav.classList.toggle("active");
+
     });
 
 }
 
 
-// Cerrar menú al seleccionar una opción
+/* =========================================================
+   CERRAR MENÚ AL SELECCIONAR UNA OPCIÓN
+========================================================= */
+
 document.querySelectorAll(".nav a").forEach(link => {
 
     link.addEventListener("click", () => {
 
         if (mainNav) {
+
             mainNav.classList.remove("active");
+
         }
 
     });
@@ -30,45 +35,85 @@ document.querySelectorAll(".nav a").forEach(link => {
 });
 
 
-// Año automático del footer
-const yearElement = document.getElementById("year");
+/* =========================================================
+   AÑO AUTOMÁTICO DEL FOOTER
+========================================================= */
+
+const yearElement =
+    document.getElementById("year");
 
 if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
+
+    yearElement.textContent =
+        new Date().getFullYear();
+
 }
 
 
-// Animaciones al hacer scroll
-const revealElements = document.querySelectorAll(
-    ".skill-card, .project-card, .timeline-item, .tool-group, .book-card"
-);
+/* =========================================================
+   ANIMACIONES AL HACER SCROLL
+========================================================= */
 
-const observer = new IntersectionObserver(
-    entries => {
+const revealElements =
+    document.querySelectorAll(
+        ".skill-card, " +
+        ".project-card, " +
+        ".timeline-item, " +
+        ".tool-group, " +
+        ".book-card, " +
+        ".gallery-card, " +
+        ".education-card, " +
+        ".about-card"
+    );
 
-        entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
+if ("IntersectionObserver" in window) {
 
-                entry.target.classList.add("reveal", "visible");
+    const observer =
+        new IntersectionObserver(
+            entries => {
 
-                observer.unobserve(entry.target);
+                entries.forEach(entry => {
 
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "reveal",
+                            "visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
             }
-
-        });
-
-    },
-    {
-        threshold: 0.12
-    }
-);
+        );
 
 
-revealElements.forEach(element => {
+    revealElements.forEach(element => {
 
-    element.classList.add("reveal");
+        element.classList.add("reveal");
 
-    observer.observe(element);
+        observer.observe(element);
 
-});
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+
+        element.classList.add(
+            "reveal",
+            "visible"
+        );
+
+    });
+
+}
