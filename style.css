@@ -2588,7 +2588,20 @@ button {
 
 }
 
-/* Corrección final: fondo blanco del logo de Corpus Educa */
+/* =========================================================
+   LOGO CORPUS EDUCA - FONDO BLANCO
+========================================================= */
+
 .corpuseduca-mark {
+    background: #ffffff !important;
+    border: 1px solid #dfe5ec !important;
+    padding: 20px !important;
+    overflow: hidden;
+}
+
+.corpuseduca-mark img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
     background: #ffffff !important;
 }
