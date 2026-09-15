@@ -2587,3 +2587,8 @@ button {
         translateY(0);
 
 }
+
+/* Corrección final: fondo blanco del logo de Corpus Educa */
+.corpuseduca-mark {
+    background: #ffffff !important;
+}
