@@ -1880,31 +1880,23 @@ button {
 }
 
 .corpuseduca-mark {
-
     width: 210px;
-
     height: 210px;
-
     border-radius: 50%;
-
     display: grid;
-
     place-items: center;
-
     justify-self: center;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.06);
+    padding: 25px;
+    overflow: hidden;
+}
 
-    font-size: 70px;
-
-    font-weight: 900;
-
-    color: var(--white);
-
-    border:
-        1px solid rgba(255,255,255,0.25);
-
-    background:
-        rgba(255,255,255,0.06);
-
+.corpuseduca-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 
